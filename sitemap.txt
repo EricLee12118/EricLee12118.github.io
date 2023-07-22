@@ -1,7 +1,7 @@
-https://ericlee12118.github.io/2023/07/22/Algorithm/
-https://ericlee12118.github.io/2023/07/17/%E5%BB%BA%E7%AB%99%E6%89%8B%E5%86%8C/
-https://ericlee12118.github.io/2023/07/22/Linux/
-https://ericlee12118.github.io/2023/07/22/Spring%20boot/
+https://ericlee12118.github.io/2023/07/22/3/
+https://ericlee12118.github.io/2023/07/22/2/
+https://ericlee12118.github.io/2023/07/22/1/
+https://ericlee12118.github.io/2023/07/22/4/
 https://ericlee12118.github.io/categories/index.html
 https://ericlee12118.github.io/about/index.html
 https://ericlee12118.github.io/link/index.html
@@ -10,9 +10,11 @@ https://ericlee12118.github.io/Gallery/index.html
 https://ericlee12118.github.io/music/index.html
 https://ericlee12118.github.io/tags/index.html
 https://ericlee12118.github.io/archives/index.html
+https://ericlee12118.github.io/contact/index.html
 https://ericlee12118.github.io/
-https://ericlee12118.github.io/tags/Spring-boot/
-https://ericlee12118.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/
-https://ericlee12118.github.io/categories/Algorithm/
+https://ericlee12118.github.io/tags/Python/
+https://ericlee12118.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8-%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/
+https://ericlee12118.github.io/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/
+https://ericlee12118.github.io/categories/%E7%AE%97%E6%B3%95/
+https://ericlee12118.github.io/categories/Web-Development/
 https://ericlee12118.github.io/categories/Linux/
-https://ericlee12118.github.io/categories/web%E5%89%8D%E7%AB%AF/

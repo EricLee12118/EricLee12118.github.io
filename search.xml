@@ -4,9 +4,28 @@
   
     
     <entry>
+      <title>Hexo建站手册</title>
+      <link href="/2023/07/22/1/"/>
+      <url>/2023/07/22/1/</url>
+      
+        <content type="html"><![CDATA[<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p><p>这里我把个人博客托管在 GitHub Pages 上。GitHub Pages 是一种静态站点托管服务，每个 GitHub 帐户或组织都可以有一个站点。</p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建一个新的Post"><a href="#创建一个新的Post" class="headerlink" title="创建一个新的Post"></a>创建一个新的Post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><h3 id="生成静态页面文件"><a href="#生成静态页面文件" class="headerlink" title="生成静态页面文件"></a>生成静态页面文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><h3 id="远程部署"><a href="#远程部署" class="headerlink" title="远程部署"></a>远程部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web Development </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux</title>
-      <link href="/2023/07/22/Linux/"/>
-      <url>/2023/07/22/Linux/</url>
+      <link href="/2023/07/22/4/"/>
+      <url>/2023/07/22/4/</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -23,42 +42,23 @@
     
     
     <entry>
-      <title>Algorithm</title>
-      <link href="/2023/07/22/Algorithm/"/>
-      <url>/2023/07/22/Algorithm/</url>
+      <title>Leetcode 1</title>
+      <link href="/2023/07/22/3/"/>
+      <url>/2023/07/22/3/</url>
       
         <content type="html"><![CDATA[]]></content>
       
       
       <categories>
           
-          <category> Algorithm </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Java</title>
-      <link href="/2023/07/22/Spring%20boot/"/>
-      <url>/2023/07/22/Spring%20boot/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 后端开发 </category>
+          <category> 算法 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Spring boot </tag>
+            <tag> 哈希表,暴力破解 </tag>
             
         </tags>
       
@@ -67,23 +67,23 @@
     
     
     <entry>
-      <title>Hexo建站手册</title>
-      <link href="/2023/07/17/%E5%BB%BA%E7%AB%99%E6%89%8B%E5%86%8C/"/>
-      <url>/2023/07/17/%E5%BB%BA%E7%AB%99%E6%89%8B%E5%86%8C/</url>
+      <title>Java</title>
+      <link href="/2023/07/22/2/"/>
+      <url>/2023/07/22/2/</url>
       
-        <content type="html"><![CDATA[<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p><p>这里我把个人博客托管在 GitHub Pages 上。GitHub Pages 是一种静态站点托管服务，每个 GitHub 帐户或组织都可以有一个站点。</p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建一个新的Post"><a href="#创建一个新的Post" class="headerlink" title="创建一个新的Post"></a>创建一个新的Post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><h3 id="生成静态页面文件"><a href="#生成静态页面文件" class="headerlink" title="生成静态页面文件"></a>生成静态页面文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><h3 id="远程部署"><a href="#远程部署" class="headerlink" title="远程部署"></a>远程部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       <categories>
           
-          <category> web前端 </category>
+          <category> 网络爬虫 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Spring boot </tag>
+            <tag> Python </tag>
             
         </tags>
       
