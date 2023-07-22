@@ -6,7 +6,7 @@
   <link href="https://ericlee12118.github.io/atom.xml" rel="self"/>
   
   <link href="https://ericlee12118.github.io/"/>
-  <updated>2023-07-17T00:58:23.711Z</updated>
+  <updated>2023-07-22T02:43:01.205Z</updated>
   <id>https://ericlee12118.github.io/</id>
   
   <author>
@@ -17,22 +17,74 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://ericlee12118.github.io/2023/07/17/hello-world/"/>
-    <id>https://ericlee12118.github.io/2023/07/17/hello-world/</id>
+    <title>Linux</title>
+    <link href="https://ericlee12118.github.io/2023/07/22/Linux/"/>
+    <id>https://ericlee12118.github.io/2023/07/22/Linux/</id>
+    <published>2023-07-22T02:42:13.000Z</published>
+    <updated>2023-07-22T02:43:01.205Z</updated>
+    
+    
+    
+    
+    <category term="Linux" scheme="https://ericlee12118.github.io/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithm</title>
+    <link href="https://ericlee12118.github.io/2023/07/22/Algorithm/"/>
+    <id>https://ericlee12118.github.io/2023/07/22/Algorithm/</id>
+    <published>2023-07-22T02:42:05.000Z</published>
+    <updated>2023-07-22T03:21:04.648Z</updated>
+    
+    
+    
+    
+    <category term="Algorithm" scheme="https://ericlee12118.github.io/categories/Algorithm/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java</title>
+    <link href="https://ericlee12118.github.io/2023/07/22/Spring%20boot/"/>
+    <id>https://ericlee12118.github.io/2023/07/22/Spring%20boot/</id>
+    <published>2023-07-22T02:28:31.000Z</published>
+    <updated>2023-07-22T02:33:14.381Z</updated>
+    
+    
+    
+    
+    <category term="后端开发" scheme="https://ericlee12118.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Spring boot" scheme="https://ericlee12118.github.io/tags/Spring-boot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo建站手册</title>
+    <link href="https://ericlee12118.github.io/2023/07/17/%E5%BB%BA%E7%AB%99%E6%89%8B%E5%86%8C/"/>
+    <id>https://ericlee12118.github.io/2023/07/17/%E5%BB%BA%E7%AB%99%E6%89%8B%E5%86%8C/</id>
     <published>2023-07-17T02:26:40.322Z</published>
-    <updated>2023-07-17T00:58:23.711Z</updated>
+    <updated>2023-07-22T03:20:14.437Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p><p>这里我把个人博客托管在 GitHub Pages 上。GitHub Pages 是一种静态站点托管服务，每个 GitHub 帐户或组织都可以有一个站点。</p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建一个新的Post"><a href="#创建一个新的Post" class="headerlink" title="创建一个新的Post"></a>创建一个新的Post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><h3 id="生成静态页面文件"><a href="#生成静态页面文件" class="headerlink" title="生成静态页面文件"></a>生成静态页面文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><h3 id="远程部署"><a href="#远程部署" class="headerlink" title="远程部署"></a>远程部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。&lt;/p&gt;
+&lt;p&gt;这里我把个人博客托管在 GitHub Pages 上。GitHub Pages 是一种静态站点托管服务，每个 G</summary>
       
     
     
     
+    <category term="web前端" scheme="https://ericlee12118.github.io/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Spring boot" scheme="https://ericlee12118.github.io/tags/Spring-boot/"/>
     
   </entry>
   
