@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>LeetCode 1 两数之和</title>
+      <link href="/posts/2d40795.html"/>
+      <url>/posts/2d40795.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目描述">题目描述</h2><p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code>，请你在该数组中找出和为目标值 <code>target</code> 的那两个整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p><p>你可以按任意顺序返回答案。</p><p>示例 1：</p><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = <span class="comment">[2,7,11,15]</span>, target = 9 </span><br><span class="line">输出：<span class="comment">[0,1]</span> </span><br><span class="line">解释：因为 nums<span class="comment">[0]</span> + nums<span class="comment">[1]</span> == 9 ，返回 <span class="comment">[0, 1]</span> </span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = <span class="comment">[3,2,4]</span>, target = 6</span><br><span class="line">输出：<span class="comment">[1,2]</span></span><br></pre></td></tr></table></figure><h2 id="解答">解答</h2><p>核心观念：编程实际上是用计算机实现人工能干的事情。 因此解题可以遵循 “人工推导——从个体到群体——从特殊到普遍” 的思路，即从个例推出通解。 以本题示例一为例：数组 [2, 7, 11, 15]，目标为 9，显然如果是人来做这道题，最简单的 想法应当是遍历整个数组，逐个寻找是否存在答案：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Round 1：先取元素 2，根据 <span class="attribute">9-2</span>=7，下一步寻找7是否在剩下的元素中，若在则返回下标，此时答案为 [0, 1]</span><br><span class="line"></span><br><span class="line">Round 2：先取元素 7，根据 <span class="attribute">9-7</span>=2，下一步寻找2是否在剩下的元素中，若在则返回下标，此时答案为 [1, 0]</span><br><span class="line"></span><br><span class="line">······</span><br><span class="line"></span><br><span class="line">Round 4：先取元素 11，<span class="attribute">9-11</span>=-2，-2 不在数组 nums 中，故排除此种情况</span><br></pre></td></tr></table></figure><p>由于题目保证仅存在一个答案，故遍历过程中只要存在一个解，即可返回结果；同时，可以注意到，上例的遍历过程存在一定的重复，如遍历了元素 2 之后，结果为 2+7=9，但若再遍历下一个元素 7 时，结果为 7+2=9，二者返回的是相同的数字组合，只不过顺序不同。因此，遍历当前元素时无需从该元素前面的元素中找答案。</p><p>到这里，我们可以将上述的思路以及从示例中推导出的解题步骤转化为代码了：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums, target</span>):</span><br><span class="line">      <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">      :type nums: List[int]</span></span><br><span class="line"><span class="string">      :type target: int</span></span><br><span class="line"><span class="string">      :rtype: List[int]</span></span><br><span class="line"><span class="string">      &quot;&quot;&quot;</span></span><br><span class="line">      <span class="comment"># 遍历列表</span></span><br><span class="line">      <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">          <span class="comment"># 计算需要找到的下一个目标数字</span></span><br><span class="line">          res = target-nums[i]</span><br><span class="line">          <span class="comment"># 遍历剩下的元素，查找是否存在该数字</span></span><br><span class="line">          <span class="keyword">if</span> res <span class="keyword">in</span> nums[i+<span class="number">1</span>:]:</span><br><span class="line">              <span class="comment"># 若存在，返回答案。这里由于是两数之和，可采用.index()方法</span></span><br><span class="line">              <span class="comment"># 获得目标元素在nums[i+1:]这个子数组中的索引后，还需加上i+1才是该元素在nums中的索引</span></span><br><span class="line">              <span class="keyword">return</span> [i, nums[i+<span class="number">1</span>:].index(res)+i+<span class="number">1</span>]</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 哈希表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Markdown语法与外挂标签写法汇总</title>
       <link href="/posts/2013454d.html"/>
       <url>/posts/2013454d.html</url>
