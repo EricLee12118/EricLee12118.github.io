@@ -3173,18 +3173,18 @@ let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
 if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
-  /* document.getElementById("defineBg").innerText = `:root{
+  document.getElementById("defineBg").innerText = `:root{
     --default-bg: url(https://raw.githubusercontent.com/EricLee12118/picture/main/girl_grass_city_213102_1920x1080.jpg);
     --darkmode-bg:url(https://raw.githubusercontent.com/EricLee12118/picture/main/girl_umbrella_anime_141156_1920x1080.jpg);
     --mobileday-bg: url(https://raw.githubusercontent.com/EricLee12118/picture/main/girl_grass_city_213102_938x1668.jpg);
     --mobilenight-bg: url(https://raw.githubusercontent.com/EricLee12118/picture/main/girl_umbrella_anime_141156_938x1668.jpg);
-  }`;*/
-  document.getElementById("defineBg").innerText = `:root{
+  }`;
+  /* document.getElementById("defineBg").innerText = `:root{
     --default-bg: url(/img/day1.jpg);
     --darkmode-bg:url(/img/night1.jpg);
     --mobileday-bg: url(/img/day2.jpg);
     --mobilenight-bg: url(/img/night2.jpg);
-  }`;
+  }`;*/
 }
 // 切换背景主函数
 function changeBg(s) {
