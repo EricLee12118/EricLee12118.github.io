@@ -3174,10 +3174,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://raw.githubusercontent.com/EricLee12118/picture/main/girl_grass_city_213102_1920x1080.jpg);
-    --darkmode-bg:url(https://raw.githubusercontent.com/EricLee12118/picture/main/girl_umbrella_anime_141156_1920x1080.jpg);
-    --mobileday-bg: url(https://raw.githubusercontent.com/EricLee12118/picture/main/girl_grass_city_213102_938x1668.jpg);
-    --mobilenight-bg: url(https://raw.githubusercontent.com/EricLee12118/picture/main/girl_umbrella_anime_141156_938x1668.jpg);
+    --default-bg: url(https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/day1.jpg);
+    --darkmode-bg:url(https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/night1.jpg);
+    --mobileday-bg: url(https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/day2.jpg);
+    --mobilenight-bg: url(https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/night2.jpg);
   }`;
   /* document.getElementById("defineBg").innerText = `:root{
     --default-bg: url(/img/day1.jpg);
