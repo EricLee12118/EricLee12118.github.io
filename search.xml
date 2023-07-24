@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>LeetCode 250 统计同值字树</title>
+      <link href="/posts/22f8d4c9.html"/>
+      <url>/posts/22f8d4c9.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目描述">题目描述</h2><p>给定一个二叉树，统计该二叉树数值相同的子树个数。</p><p>同值子树是指该子树的所有节点都拥有相同的数值。</p><details class="folding-tag" cyan open><summary> 示例 </summary>              <div class='content'>              <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入: root = [5,1,5,5,5,null,5] </span><br><span class="line"></span><br><span class="line">             <span class="number"> 5 </span></span><br><span class="line">             / \ </span><br><span class="line">           <span class="number"> 1 </span> <span class="number"> 5 </span></span><br><span class="line">           / \   \ </span><br><span class="line">         <span class="number"> 5 </span> <span class="number"> 5 </span> <span class="number"> 5 </span></span><br><span class="line"></span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure>              </div>            </details><h2 id="解题思路">解题思路</h2><p>这道题目要求统计二叉树中数值相同的子树的个数。给定一个二叉树，我们需要遍历每个节点并判断以每个节点为根的子树是否是同值子树。</p><p>解题思路：</p><ul><li><p>我们可以使用深度优先搜索（DFS）来遍历二叉树的每个节点。从根节点开始，递归地遍历每个节点。</p></li><li><p>在DFS的过程中，我们需要判断以当前节点为根的子树是否是同值子树。为了判断，我们可以利用后序遍历的思想，从叶子节点开始向上判断。</p></li><li><p>对于每个节点，我们需要分别获取其左子树和右子树的返回值。对于叶子节点，返回节点本身的数值。对于空节点，返回None。</p></li><li><p>接着，我们需要判断以当前节点为根的子树是否是同值子树。若当前节点为空节点，显然是同值子树；若当前节点为叶子节点，同样也是同值子树。否则，我们比较左子树和右子树的返回值是否与当前节点的数值相同，如果都相同，那么以当前节点为根的子树也是同值子树。</p></li><li><p>在每次判断完以当前节点为根的子树是否是同值子树后，如果是，我们就将结果ans加1，表示找到了一个同值子树。</p></li><li><p>最后，DFS递归结束后，返回ans作为结果，即统计到的同值子树的个数。</p></li></ul><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">countUnivalSubtrees</span>(<span class="params">self, root: TreeNode</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        self.ans = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Step 1: Start DFS traversal from the root node</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">node</span>):</span><br><span class="line">            <span class="comment"># Step 2: Base case - if the node is None, return None</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> node:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Step 3: If the node is a leaf node (no children), increment ans by 1</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> node.left <span class="keyword">and</span> <span class="keyword">not</span> node.right:</span><br><span class="line">                self.ans += <span class="number">1</span></span><br><span class="line">                <span class="keyword">return</span> node.val</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Step 4: Recursive DFS calls on left and right subtrees</span></span><br><span class="line">            left = dfs(node.left)</span><br><span class="line">            right = dfs(node.right)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Step 5: Check if the current subtree is a unival subtree</span></span><br><span class="line">            <span class="comment">#        - If the left and right subtrees have the same value as the current node&#x27;s value, or</span></span><br><span class="line">            <span class="comment">#        - If one of the subtrees is None (empty) and the other subtree has the same value as the current node&#x27;s value</span></span><br><span class="line">            <span class="comment"># Then, the current subtree is a unival subtree, so increment ans by 1 and return the current node&#x27;s value.</span></span><br><span class="line">            <span class="keyword">if</span> left == right == node.val <span class="keyword">or</span> (left <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> right == node.val) <span class="keyword">or</span> (right <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> left == node.val):</span><br><span class="line">                self.ans += <span class="number">1</span></span><br><span class="line">                <span class="keyword">return</span> node.val</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Step 6: If the current subtree is not a unival subtree, return a value (e.g., infinity) that will not affect the above comparisons</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Start the DFS traversal from the root node</span></span><br><span class="line">        dfs(root)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Return the total count of unival subtrees</span></span><br><span class="line">        <span class="keyword">return</span> self.ans</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二叉树 </tag>
+            
+            <tag> 深度优先搜索 </tag>
+            
+            <tag> 进阶 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 1 两数之和</title>
       <link href="/posts/2d40795.html"/>
       <url>/posts/2d40795.html</url>
@@ -23,6 +52,8 @@
             <tag> 数组 </tag>
             
             <tag> 哈希表 </tag>
+            
+            <tag> 基础 </tag>
             
         </tags>
       
