@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>LeetCode 1120 子树的最大平均值</title>
+      <link href="/posts/30c46b58.html"/>
+      <url>/posts/30c46b58.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="题目描述">题目描述</h2><p>给你一棵二叉树的根节点<code>root</code>，找出这棵树的<code>每一棵</code>子树的<code>平均值</code>中的<code>最大</code>值。</p><p>子树是树中的任意节点和它的所有后代构成的集合。</p><p>树的平均值是树中节点值的总和除以节点数。</p><details class="folding-tag" cyan open><summary> 示例 </summary>              <div class='content'>              <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：[5,6,1]</span><br><span class="line">输出：6.00000</span><br><span class="line">解释： </span><br><span class="line">以 value =<span class="number"> 5 </span>的节点作为子树的根节点，得到的平均值为 (5 +<span class="number"> 6 </span>+ 1) /<span class="number"> 3 </span>= 4。</span><br><span class="line">以 value =<span class="number"> 6 </span>的节点作为子树的根节点，得到的平均值为<span class="number"> 6 </span>/<span class="number"> 1 </span>= 6。</span><br><span class="line">以 value =<span class="number"> 1 </span>的节点作为子树的根节点，得到的平均值为<span class="number"> 1 </span>/<span class="number"> 1 </span>= 1。</span><br><span class="line">所以答案取最大值 6。</span><br></pre></td></tr></table></figure>              </div>            </details><h2 id="解题思路">解题思路</h2><p>无脑dfs,其实也算自底向上</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maximumAverageSubtree</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">        self.ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">root</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>,<span class="number">0</span> </span><br><span class="line">            left_sum, left_count = dfs(root.left)</span><br><span class="line">            right_sum, right_count = dfs(root.right)</span><br><span class="line">            cur_sum = left_sum + right_sum + root.val</span><br><span class="line">            cur_count  = left_count + right_count + <span class="number">1</span></span><br><span class="line">            self.ans = <span class="built_in">max</span>(self.ans, cur_sum/cur_count)</span><br><span class="line">            <span class="keyword">return</span> cur_sum,cur_count  </span><br><span class="line">        dfs(root)</span><br><span class="line">        <span class="keyword">return</span> self.ans</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二叉树 </tag>
+            
+            <tag> 深度优先搜索 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>一次认识NVM、Node.js、NPM、NPX</title>
       <link href="/posts/8c45a1bb.html"/>
       <url>/posts/8c45a1bb.html</url>
