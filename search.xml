@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>BUUCTF Linux Labs</title>
+      <link href="/posts/cd750b02.html"/>
+      <url>/posts/cd750b02.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="Write-Up">Write Up</h2><p>有时需要反弹shell，可以通过ssh连接buu内网主机</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 25395 root@7934fca6-84d1-42c9-adaa-dd1961eb0e07.node4.buuoj.cn</span><br></pre></td></tr></table></figure><p>-p指定端口，root为用户名，@后为ip地址</p><p>成功连接到服务器</p><p><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/1.png" alt=""></p><p>第一次连接需要输入yes和密码，进入界面后用<code>ls</code>命令发现没有任何文件，用<code>cd ..</code>命令返回上一级目录查看，发现<code>flag.txt</code>,用<code>cat</code>命令打开，拿到<code>flag</code></p><p><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/2.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+            <tag> 反弹shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 1120 子树的最大平均值</title>
       <link href="/posts/30c46b58.html"/>
       <url>/posts/30c46b58.html</url>
@@ -23,6 +50,8 @@
             <tag> 二叉树 </tag>
             
             <tag> 深度优先搜索 </tag>
+            
+            <tag> 进阶 </tag>
             
         </tags>
       
