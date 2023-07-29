@@ -54,7 +54,7 @@ function tonav() {
     position = scroll;
   });
   //修复没有弄右键菜单的童鞋无法回顶部的问题
-  document.getElementById("page-name").innerText = document.title.split(" | Fomalhaut🥝")[0];
+  document.getElementById("page-name").innerText = document.title.split(" | Vileplume")[0];
 }
 
 function scrollToTop() {
@@ -1120,7 +1120,7 @@ function createtime1() {
   var dnum = Math.floor(days);
 
   var ascll = [
-    `欢迎来到Vileplume的博客!`,
+    `欢迎来到Vileplume的博客!基于hexo-theme-fomalhaut开发，如感兴趣欢迎前往fomal.cc进一步学习`,
     `At this very moment, it echoes the past.`,
     `
         
@@ -1131,10 +1131,7 @@ function createtime1() {
 ██       ██████  ██      ██ ██   ██ ███████ ██   ██ ██   ██  ██████     ██   
                                               
 `,
-    "小站已经苟活",
-    dnum,
-    "天啦!",
-    "©2022 By Fomalhaut",
+    "©2023 By Vileplume",
   ];
 
   setTimeout(
@@ -1155,7 +1152,7 @@ function createtime1() {
 createtime1();
 
 function createtime2() {
-  var ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为「大聪明」`, `Photo captured: `, ` 🤪 `];
+  var ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为「OP」`, `Photo captured: `, ` 🤪 `,`实际上并没有了`];
 
   setTimeout(
     console.log.bind(
